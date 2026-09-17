@@ -73,17 +73,17 @@ export function Hero() {
       <div className="w-full max-w-4xl text-center space-y-4 pt-6">
         {/* Pre-title */}
         <p className="text-[#1e0a10] text-sm md:text-base font-medium tracking-wide leading-relaxed">
-          Se você ou alguém da sua família possui financiamento imobiliário ou de veículos e enfrenta (ou enfrentou) uma doença grave, atenção:
+          Se você ou alguém da sua família possui financiamento imobiliário e enfrenta (ou enfrentou) uma doença grave, atenção:
         </p>
 
         {/* Main Headline */}
         <h1 className="font-sans text-[#1e0a10] text-2xl md:text-3xl lg:text-[32px] font-bold leading-snug max-w-3xl mx-auto">
-          Vou te mostrar, em apenas 1 hora, os direitos pouco divulgados que permitem a quitação de financiamentos por doenças graves e como evitar cobranças indevidas.
+          Vou te mostrar, em apenas 1 hora, os direitos pouco divulgados que permitem a quitação de financiamento imobiliário por doenças graves e como evitar cobranças indevidas.
         </h1>
 
         {/* Short Explanation */}
         <p className="text-[#1e0a10]/90 text-sm md:text-base max-w-3xl mx-auto leading-relaxed">
-          Participe da nossa Reunião Fechada e Exclusiva no Google Meet e descubra como a legislação e as apólices de seguro garantem a quitação do seu financiamento.
+          Participe da nossa Sala Secreta: Projeto Casa Quitada No Google Meet e descubra como a legislação e as proteções contratuais garantem a quitação do seu financiamento imobiliário.
         </p>
 
         {/* Event details */}
@@ -230,10 +230,10 @@ export function Hero() {
       {/* Sub-form Info */}
       <div className="w-full max-w-2xl text-center mt-8 space-y-2">
         <p className="text-[#1e0a10] text-sm md:text-base font-medium">
-          Por Dra. Carola Moraes - Especialista em Quitação de Financiamento por Doenças Graves
+          Pelas Dras. Cyntia D'Ambrosio e Maria Carolina Moraes - Especialistas em Quitação de Financiamento por Doenças Graves
         </p>
         <p className="text-[#861a32] text-base md:text-lg font-bold tracking-wide">
-          Não continue pagando parcelas sem saber se você tem direito à quitação do seu financiamento!
+          Não continue pagando parcelas sem saber se você tem direito à quitação do seu financiamento imobiliário!
         </p>
 
         {/* Big CTA Button */}

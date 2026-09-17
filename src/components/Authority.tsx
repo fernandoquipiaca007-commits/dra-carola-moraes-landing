@@ -27,7 +27,7 @@ export function Authority() {
             <div className="w-full max-w-[420px] rounded-[24px] overflow-hidden shadow-lg border border-slate-100">
               <img
                 src={fotoPerfil}
-                alt="Dra. Carola Moraes e Dra. Cyntia D'Ambrosio"
+                alt="Dra. Maria Carolina Moraes e Dra. Cyntia D'Ambrosio"
                 className="w-full h-auto block object-cover"
               />
             </div>
@@ -48,19 +48,19 @@ export function Authority() {
 
             {/* Subtitle */}
             <p className="text-[#861a32] font-semibold text-lg">
-              Dra. Maria Carolina (Carola Moraes) & Dra. Cyntia D'Ambrosio
+              Dras. Cyntia D'Ambrosio e Maria Carolina Moraes
             </p>
 
             {/* Biography Paragraphs */}
             <div className="space-y-4 text-[#1e0a10] font-sans text-sm md:text-base leading-relaxed text-justify">
               <p>
-                <strong>Dra. Maria Carolina (Carola Moraes)</strong> — Formada pela Faculdade de Direito de Vitória (FDV), acumula 20 anos de experiência no Direito e é especialista em Direito Previdenciário e quitação de financiamentos. Mãe de 3 filhos, é sócia e cofundadora do escritório D'Ambrosio & Moraes Advocacia.
+                <strong>Dra. Maria Carolina (Carola Moraes)</strong> — Formada pela Faculdade de Direito de Vitória (FDV), acumula 20 anos de experiência no Direito e é especialista em Direito Previdenciário e quitação de financiamentos imobiliários. Mãe de 3 filhos, é sócia e cofundadora do escritório D'Ambrosio & Moraes Advocacia.
               </p>
               <p>
                 <strong>Dra. Cyntia D'Ambrosio</strong> — Formada pelas Faculdades Integradas Espírito-Santense (FAESA), possui 17 anos de experiência na advocacia e especialização em Direito Civil, Processo Civil e Previdenciário. Mãe de 2 meninas, é sócia e cofundadora do escritório D'Ambrosio & Moraes Advocacia.
               </p>
               <p>
-                Com ampla expertise no processo de quitação de financiamentos imobiliários e de veículos decorrente de doenças graves e invalidez, o escritório atua para garantir que as famílias exerçam seus direitos previdenciários e securitários com segurança jurídica, dignidade e proteção financeira.
+                Com ampla expertise no processo de quitação de financiamentos imobiliários decorrente de doenças graves e invalidez, o escritório atua para garantir que as famílias exerçam seus direitos previdenciários e securitários com segurança jurídica, dignidade e proteção financeira.
               </p>
             </div>
           </motion.div>
