@@ -1,5 +1,8 @@
-﻿export const META_PIXEL_ID = '1011775295216711';
-export const META_ACCESS_TOKEN = 'EAAW7BoCyOHIBSnQb66JD6mckeNyEaC6b1hpRljURQ6q9K8CIe5bYzzYZBztOPNCZA8nic5W0LBuFK5diSaM5IYQivNxwi3QsMOEsDR39yxDbjZAAWJPBfQpxeUQuYpwD6yWceI9kumYXuYQODSL34eWCOrq58q0mbgrR1qd3SY5RBESkz3PSC9D4WUaZCxEaTwZDZD';
+﻿import { supabase } from './supabase';
+
+export const META_PIXEL_ID = '1011775295216711';
+export const META_ACCESS_TOKEN =
+  'EAAW7BoCyOHIBSnQb66JD6mckeNyEaC6b1hpRljURQ6q9K8CIe5bYzzYZBztOPNCZA8nic5W0LBuFK5diSaM5IYQivNxwi3QsMOEsDR39yxDbjZAAWJPBfQpxeUQuYpwD6yWceI9kumYXuYQODSL34eWCOrq58q0mbgrR1qd3SY5RBESkz3PSC9D4WUaZCxEaTwZDZD';
 
 async function sha256(str: string): Promise<string> {
   const msgBuffer = new TextEncoder().encode(str.trim().toLowerCase());
@@ -25,7 +28,31 @@ export async function trackLeadEvent(userData: UserData) {
     }, { eventID: eventId });
   }
 
-  // 2. Meta Conversions API (CAPI) send event directly via Graph API
+  // 2. Meta Conversions API via Supabase Edge Function (Server-Side)
+  try {
+    const { data, error } = await supabase.functions.invoke('meta-conversions-api', {
+      body: {
+        name: userData.name,
+        email: userData.email,
+        phone: userData.phone,
+        event_id: eventId,
+        event_source_url: typeof window !== 'undefined' ? window.location.href : ''
+      }
+    });
+
+    if (error) {
+      console.warn('Supabase Edge Function notice (using direct CAPI fallback):', error.message);
+      await sendDirectCAPI(userData, eventId);
+    } else {
+      console.log('Meta CAPI via Supabase Edge Function success:', data);
+    }
+  } catch (err) {
+    console.warn('Edge Function fallback to direct CAPI call:', err);
+    await sendDirectCAPI(userData, eventId);
+  }
+}
+
+async function sendDirectCAPI(userData: UserData, eventId: string) {
   try {
     const hashedEmail = userData.email ? await sha256(userData.email) : null;
     const cleanPhone = userData.phone ? userData.phone.replace(/\D/g, '') : '';
@@ -66,7 +93,7 @@ export async function trackLeadEvent(userData: UserData) {
     });
 
     const resData = await response.json();
-    console.log('Meta CAPI Lead Event response:', resData);
+    console.log('Meta Direct CAPI Lead Event response:', resData);
   } catch (error) {
     console.error('Error sending Meta CAPI event:', error);
   }
